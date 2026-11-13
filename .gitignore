@@ -1,0 +1,17 @@
+# Secrets & Keys
+*.pem
+*.key
+*.db
+biodata.db
+
+# Cache & Build
+__pycache__/
+*.pyc
+
+# Local scripts
+*.ps1
+*.sh
+*.bat
+nginx_canonical.conf
+run_8_tests.py
+server.py

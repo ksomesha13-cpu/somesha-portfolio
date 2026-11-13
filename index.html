@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somesha K — Full-Stack Software Engineering & AI Portfolio</title>
+    <meta name="description" content="Official Full-Stack Engineering, AI & Cybersecurity Portfolio of Somesha K — B.E. Computer Science & Engineering graduate from SJM Institute of Technology.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Mouse Glow Follower -->
+    <div class="mouse-glow" id="mouseGlow"></div>
+
+    <!-- Cyber Background Elements -->
+    <canvas id="cyberMatrixCanvas" class="matrix-canvas"></canvas>
+    <div class="cyber-grid"></div>
+    <div class="mesh-gradient mesh-1"></div>
+    <div class="mesh-gradient mesh-2"></div>
+    <div class="mesh-gradient mesh-3"></div>
+
+    <!-- Floating Dock Navbar -->
+    <div class="nav-wrapper">
+        <header class="navbar" id="navbar">
+            <a href="#hero" class="brand">
+                <span class="brand-avatar">SK</span>
+                <span class="brand-text">Somesha<span class="brand-dot">.shop</span></span>
+            </a>
+            
+            <nav class="nav-links" id="navLinks">
+                <a href="#about" class="nav-item">Education</a>
+                <a href="#skills" class="nav-item">Skills</a>
+                <a href="#projects" class="nav-item">Projects</a>
+                <a href="#experience" class="nav-item">Achievements</a>
+                <a href="#certifications" class="nav-item">Certifications</a>
+                <a href="#contact" class="nav-item">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="resume.pdf" target="_blank" onclick="trackResumeDownload()" class="nav-cta-btn">
+                    <i class="fa-solid fa-file-arrow-down"></i>
+                    <span>Resume PDF</span>
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="container hero-content">
+            <!-- Status Pill -->
+            <div class="status-pill">
+                <span class="pulse-indicator"></span>
+                <span>Computer Science & Engineering · <strong>Full-Stack & AI Systems</strong></span>
+                <span class="status-year"><i class="fa-solid fa-circle-check"></i> Available for Opportunities</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="hero-heading">
+                Software Engineering & AI Portfolio <br>
+                <span class="cyber-gradient">SOMESHA K</span>
+            </h1>
+
+            <!-- Animated Typing Title -->
+            <div class="hero-typing-box">
+                <span class="typing-label">Specialization: </span>
+                <span class="typing-text" id="typingText"></span>
+                <span class="typing-cursor"></span>
+            </div>
+
+            <p class="hero-bio" id="heroSummary">
+                Aspiring Software Engineer pursuing a <strong>B.E. in Computer Science and Engineering</strong> at <strong>SJM Institute of Technology</strong>, with hands-on experience building Python and machine learning projects while completing Full Stack Development training. Skilled at applying strong analytical and problem-solving abilities to real-world challenges with high performance and reliable software engineering.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="hero-btn-row">
+                <a href="#projects" class="btn btn-cyber">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <span>Featured Projects</span>
+                </a>
+                <a href="resume.pdf" target="_blank" onclick="trackResumeDownload()" class="btn btn-outline">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    <span>Download Resume PDF</span>
+                </a>
+            </div>
+
+            <!-- Social Links & Direct Contact Strip -->
+            <div class="hero-social-strip">
+                <a href="mailto:ksomesha13@gmail.com" class="social-chip" title="Send Email">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>ksomesha13@gmail.com</span>
+                </a>
+                <a href="tel:+916366328302" class="social-chip" title="Call Phone">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-6366328302</span>
+                </a>
+                <a href="https://www.linkedin.com/in/somesha-k-5946b8379/" target="_blank" class="social-chip linkedin-chip" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                    <span>LinkedIn Profile</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square chip-ext"></i>
+                </a>
+                <a href="https://github.com/ksomesha13-cpu" target="_blank" class="social-chip" title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                    <span>GitHub Repositories</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square chip-ext"></i>
+                </a>
+                <button onclick="copyEmailToClipboard()" class="social-chip email-chip" title="Click to copy email">
+                    <i class="fa-regular fa-copy"></i>
+                    <span id="copyEmailText">Copy Email</span>
+                </button>
+            </div>
+
+            <!-- Key Metric Cards -->
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div class="metric-info">
+                        <span class="metric-value">7.95 CGPA</span>
+                        <span class="metric-label">B.E. CSE (2023–2027)</span>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon"><i class="fa-solid fa-medal"></i></div>
+                    <div class="metric-info">
+                        <span class="metric-value">94.72%</span>
+                        <span class="metric-label">10th SSLC Distinction</span>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon"><i class="fa-solid fa-code"></i></div>
+                    <div class="metric-info">
+                        <span class="metric-value">Full Stack</span>
+                        <span class="metric-label">Python, Web & AI</span>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon"><i class="fa-solid fa-briefcase"></i></div>
+                    <div class="metric-info">
+                        <span class="metric-value">Tata AI</span>
+                        <span class="metric-label">AI Internship & Forage</span>
+                    </div>
+                </div>
+
+                </div>
+        </div>
+    </section>
+
+    <!-- About & Education Section -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <div class="section-tag-wrap">
+                <span class="section-tag">Academic Journey</span>
+                <h2 class="section-title">Professional Summary & Education</h2>
+                <p class="section-desc">Strong analytical foundation backed by consistent academic performance.</p>
+            </div>
+
+            <div class="about-flex">
+                <!-- Personal Narrative Card -->
+                <div class="glass-card about-profile-card">
+                    <div class="card-glow-edge"></div>
+                    <div class="profile-header">
+                        <div class="profile-avatar-large">
+                            <span class="monogram">&lt;SK/&gt;</span>
+                        </div>
+                        <div>
+                            <h3 class="profile-name">Somesha K</h3>
+                            <p class="profile-sub">Software Engineering, AI/ML & Security</p>
+                        </div>
+                    </div>
+
+                    <p class="about-text">
+                        Aspiring Software Engineer pursuing a <strong>B.E. in Computer Science and Engineering</strong>, with hands-on experience building <strong>Python</strong> and <strong>machine learning</strong> projects while completing <strong>Full Stack Development</strong> training.
+                    </p>
+                    <p class="about-text">
+                        Skilled at applying strong analytical and problem-solving abilities to real-world challenges, with a passion for designing scalable, maintainable web systems and data-driven artificial intelligence solutions.
+                    </p>
+
+                    <div class="quick-facts-box">
+                        <div class="fact-row">
+                            <i class="fa-solid fa-location-crosshairs"></i>
+                            <span><strong>Location:</strong> Karnataka, India</span>
+                        </div>
+                        <div class="fact-row">
+                            <i class="fa-solid fa-language"></i>
+                            <span><strong>Languages:</strong> English, Kannada (Native)</span>
+                        </div>
+                        <div class="fact-row">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <span><strong>Degree:</strong> B.E. Computer Science</span>
+                        </div>
+                        <div class="fact-row">
+                            <i class="fa-solid fa-code"></i>
+                            <span><strong>Focus:</strong> Full Stack & AI/ML</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education Timeline Card -->
+                <div class="glass-card education-card">
+                    <div class="card-glow-edge"></div>
+                    <h3 class="card-heading"><i class="fa-solid fa-graduation-cap"></i> Education Credentials</h3>
+
+                    <div class="edu-timeline">
+                        <div class="edu-step current">
+                            <div class="step-marker"></div>
+                            <div class="step-content">
+                                <div class="step-header">
+                                    <span class="step-year">2023 – 2027</span>
+                                    <span class="step-grade highlight-grade">CGPA: 7.95</span>
+                                </div>
+                                <h4 class="step-title">B.E. in Computer Science & Engineering</h4>
+                                <p class="step-org">SJM Institute of Technology</p>
+                                <p class="step-details">Pursuing Bachelor of Engineering in CSE with practical focus on Python, Machine Learning, Full Stack Development, Database Systems, and Cybersecurity principles.</p>
+                            </div>
+                        </div>
+
+                        <div class="edu-step">
+                            <div class="step-marker"></div>
+                            <div class="step-content">
+                                <div class="step-header">
+                                    <span class="step-year">2022 – 2023</span>
+                                    <span class="step-grade">68.5%</span>
+                                </div>
+                                <h4 class="step-title">12th Grade (Pre-University College)</h4>
+                                <p class="step-org">MES PU College</p>
+                                <p class="step-details">Completed Pre-University education in Science & Mathematics stream with strong fundamentals.</p>
+                            </div>
+                        </div>
+
+                        <div class="edu-step">
+                            <div class="step-marker"></div>
+                            <div class="step-content">
+                                <div class="step-header">
+                                    <span class="step-year">2011 – 2021</span>
+                                    <span class="step-grade distinction-grade">94.72% (Distinction)</span>
+                                </div>
+                                <h4 class="step-title">10th Grade (High School / SSLC)</h4>
+                                <p class="step-org">Jnana Jyothi Convent High School</p>
+                                <p class="step-details">Graduated with 94.72% distinction and exemplary academic merit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills-section" id="skills">
+        <div class="container">
+            <div class="section-tag-wrap">
+                <span class="section-tag">Technical Arsenal</span>
+                <h2 class="section-title">Technical Skills & Security Stack</h2>
+                <p class="section-desc">Core programming languages, databases, web technologies, and cybersecurity architecture.</p>
+            </div>
+
+            <div class="skills-showcase">
+                <!-- Skill Card 1: Programming Languages -->
+                <div class="skill-tile">
+                    <div class="tile-icon-box python-theme">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3 class="tile-title">Programming Languages</h3>
+                    <p class="tile-sub">Core application & web development</p>
+                    <div class="tech-pills-wrap">
+                        <div class="tech-pill"><i class="fa-brands fa-python"></i> Python</div>
+                        <div class="tech-pill"><i class="fa-brands fa-html5"></i> HTML5</div>
+                        <div class="tech-pill"><i class="fa-brands fa-css3-alt"></i> CSS3</div>
+                        <div class="tech-pill"><i class="fa-brands fa-js"></i> JavaScript</div>
+                    </div>
+                </div>
+
+                <!-- Skill Tile 2: Tools & Platforms -->
+                <div class="skill-tile">
+                    <div class="tile-icon-box cloud-theme">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h3 class="tile-title">Tools & Infrastructure</h3>
+                    <p class="tile-sub">Version control, IDE & Web server platforms</p>
+                    <div class="tech-pills-wrap">
+                        <div class="tech-pill"><i class="fa-solid fa-laptop-code"></i> VS Code</div>
+                        <div class="tech-pill"><i class="fa-brands fa-git-alt"></i> Git</div>
+                        <div class="tech-pill"><i class="fa-brands fa-github"></i> GitHub</div>
+                        <div class="tech-pill"><i class="fa-brands fa-linux"></i> Linux OS</div>
+                        <div class="tech-pill"><i class="fa-solid fa-server"></i> Nginx Web Server</div>
+                    </div>
+                </div>
+
+                <!-- Skill Tile 3: Databases -->
+                <div class="skill-tile">
+                    <div class="tile-icon-box db-theme">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <h3 class="tile-title">Databases</h3>
+                    <p class="tile-sub">Relational SQL & NoSQL document stores</p>
+                    <div class="tech-pills-wrap">
+                        <div class="tech-pill"><i class="fa-solid fa-server"></i> MySQL</div>
+                        <div class="tech-pill"><i class="fa-solid fa-leaf"></i> MongoDB</div>
+                        <div class="tech-pill"><i class="fa-solid fa-table"></i> SQLite3</div>
+                        <div class="tech-pill"><i class="fa-solid fa-shield-virus"></i> Parameterized SQL</div>
+                    </div>
+                </div>
+
+                <!-- Skill Tile 4: AI & Machine Learning -->
+                <div class="skill-tile">
+                    <div class="tile-icon-box cyber-theme">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="tile-title">AI & Machine Learning</h3>
+                    <p class="tile-sub">Predictive modeling, data analytics & smart algorithms</p>
+                    <div class="tech-pills-wrap">
+                        <div class="tech-pill"><i class="fa-solid fa-robot"></i> Machine Learning</div>
+                        <div class="tech-pill"><i class="fa-solid fa-chart-line"></i> Data Analysis</div>
+                        <div class="tech-pill"><i class="fa-solid fa-network-wired"></i> Neural Networks</div>
+                        <div class="tech-pill"><i class="fa-brands fa-python"></i> NumPy & Pandas</div>
+                        <div class="tech-pill"><i class="fa-solid fa-gears"></i> Predictive Models</div>
+                        <div class="tech-pill"><i class="fa-solid fa-diagram-project"></i> RESTful APIs</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects-section" id="projects">
+        <div class="container">
+            <div class="section-tag-wrap">
+                <span class="section-tag">Key Projects</span>
+                <h2 class="section-title">Featured Engineering Projects</h2>
+                <p class="section-desc">Real-world applications combining Full-Stack Web Development, Databases, and AI/ML.</p>
+            </div>
+
+            <div class="project-cards-grid">
+                <!-- Project 1: Web-Based Blood Bank System -->
+                <div class="project-showcase-card">
+                    <div class="project-card-glow"></div>
+                    <div class="project-cover-bar">
+                        <span class="project-type-tag"><i class="fa-solid fa-droplet"></i> Full Stack Web Platform</span>
+                        <div class="project-quick-icons">
+                            <i class="fa-brands fa-python"></i>
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                    </div>
+
+                    <div class="project-inner">
+                        <h3 class="proj-title">Web-Based Blood Bank System</h3>
+                        <p class="proj-summary">
+                            Centralized web platform designed to streamline donor management, recipient requests, and real-time blood inventory tracking.
+                        </p>
+
+                        <div class="proj-highlights">
+                            <div class="highlight-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>Architected a web-based platform to manage donor, recipient, and blood inventory records.</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>Built secure record-management and blood-request tracking functionality.</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>Enhanced data accessibility by designing a centralized database.</span>
+                            </div>
+                        </div>
+
+                        <div class="proj-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">HTML & CSS</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Centralized Database</span>
+                        </div>
+
+                        <div class="proj-actions">
+                            <a href="https://github.com/ksomesha13-cpu" target="_blank" class="proj-btn primary">
+                                <i class="fa-brands fa-github"></i>
+                                <span>View on GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Population-Driven Forecasting -->
+                <div class="project-showcase-card">
+                    <div class="project-card-glow"></div>
+                    <div class="project-cover-bar ml-cover">
+                        <span class="project-type-tag"><i class="fa-solid fa-chart-line"></i> Machine Learning</span>
+                        <div class="project-quick-icons">
+                            <i class="fa-solid fa-brain"></i>
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                    </div>
+
+                    <div class="project-inner">
+                        <h3 class="proj-title">Population-Driven Forecasting</h3>
+                        <p class="proj-summary">
+                            Predictive machine learning workflow engineered to forecast critical water and energy resource demand from population trends.
+                        </p>
+
+                        <div class="proj-highlights">
+                            <div class="highlight-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>Engineered a machine learning model to forecast water and energy demand.</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>Designed data preprocessing and feature engineering pipelines to improve prediction accuracy.</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>Integrated predictive analytics into the workflow to support resource planning.</span>
+                            </div>
+                        </div>
+
+                        <div class="proj-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Feature Engineering</span>
+                            <span class="tag">Predictive Analytics</span>
+                        </div>
+
+                        <div class="proj-actions">
+                            <a href="https://github.com/ksomesha13-cpu" target="_blank" class="proj-btn primary">
+                                <i class="fa-brands fa-github"></i>
+                                <span>View on GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: AI-Powered Crop Disease Detection -->
+                <div class="project-showcase-card">
+                    <div class="project-card-glow"></div>
+                    <div class="project-cover-bar vision-cover">
+                        <span class="project-type-tag"><i class="fa-solid fa-seedling"></i> AI & Computer Vision</span>
+                        <div class="project-quick-icons">
+                            <i class="fa-solid fa-leaf"></i>
+                            <i class="fa-solid fa-camera"></i>
+                        </div>
+                    </div>
+
+                    <div class="project-inner">
+                        <h3 class="proj-title">AI-Powered Crop Disease Detection</h3>
+                        <p class="proj-summary">
+                            AI-based agricultural diagnostic tool that analyzes plant leaf imagery to provide rapid, accurate crop disease detection.
+                        </p>
+
+                        <div class="proj-highlights">
+                            <div class="highlight-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>Detects crop diseases from leaf images using AI.</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>Provides fast and accurate disease identification.</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>Helps farmers take timely action and reduce crop losses.</span>
+                            </div>
+                        </div>
+
+                        <div class="proj-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Artificial Intelligence</span>
+                            <span class="tag">Leaf Image Analysis</span>
+                            <span class="tag">Smart Agriculture</span>
+                        </div>
+
+                        <div class="proj-actions">
+                            <a href="https://github.com/ksomesha13-cpu" target="_blank" class="proj-btn primary">
+                                <i class="fa-brands fa-github"></i>
+                                <span>View on GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements & Workshops Section -->
+    <section class="section exp-section" id="experience">
+        <div class="container">
+            <div class="section-tag-wrap">
+                <span class="section-tag">Achievements & Workshops</span>
+                <h2 class="section-title">Internships, Achievements & Hackathons</h2>
+                <p class="section-desc">Hands-on industry experience and competitive 24-hour hackathon participation.</p>
+            </div>
+
+            <div class="exp-cards-row">
+                <!-- Achievement: Tata AI Internship -->
+                <div class="glass-card exp-feature-card">
+                    <div class="card-glow-edge"></div>
+                    <div class="exp-badge-pill"><i class="fa-solid fa-star"></i> Achievement & Internship</div>
+                    <div class="exp-head">
+                        <div class="company-badge-icon">
+                            <i class="fa-solid fa-building"></i>
+                        </div>
+                        <div>
+                            <h3 class="role-title">AI Internship with Tata</h3>
+                            <h4 class="company-sub">Tata — Artificial Intelligence & Machine Learning</h4>
+                        </div>
+                    </div>
+                    <p class="exp-body-text">
+                        AI internship with Tata, gaining hands-on experience in Artificial Intelligence, machine learning concepts, and real-world problem-solving.
+                    </p>
+                    <div class="exp-tags-list">
+                        <span>Artificial Intelligence</span>
+                        <span>Machine Learning Concepts</span>
+                        <span>Real-World Problem Solving</span>
+                        <span>Tata Internship</span>
+                    </div>
+                </div>
+
+                <!-- Workshops & Training: Xcelerate Hackathon -->
+                <div class="glass-card exp-feature-card hackathon-card">
+                    <div class="card-glow-edge"></div>
+                    <div class="exp-badge-pill gold-pill"><i class="fa-solid fa-trophy"></i> Workshops & Training</div>
+                    <div class="exp-head">
+                        <div class="company-badge-icon gold-icon">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <div>
+                            <h3 class="role-title">Xcelerate — 24-Hour Hackathon</h3>
+                            <h4 class="company-sub">NIKSHATRA E-Summit 2025 · Bangalore Institute of Technology (BIT)</h4>
+                        </div>
+                    </div>
+                    <p class="exp-body-text">
+                        Participated in Xcelerate, a 24-Hour Hackathon held as part of NIKSHATRA E-Summit 2025 at Bangalore Institute of Technology (BIT), strengthening teamwork, innovation, and time-constrained problem-solving skills.
+                    </p>
+                    <div class="exp-tags-list">
+                        <span>24-Hour Hackathon</span>
+                        <span>NIKSHATRA E-Summit 2025</span>
+                        <span>Teamwork & Innovation</span>
+                        <span>BIT Bangalore</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="section cert-section" id="certifications">
+        <div class="container">
+            <div class="section-tag-wrap">
+                <span class="section-tag">Certifications</span>
+                <h2 class="section-title">Professional Certifications</h2>
+                <p class="section-desc">Industry-recognized certifications in Generative AI, Data Analytics, and Artificial Intelligence.</p>
+            </div>
+
+            <div class="cert-row">
+                <div class="cert-item-card">
+                    <div class="cert-icon tata-icon"><i class="fa-solid fa-certificate"></i></div>
+                    <div class="cert-details">
+                        <h4>GenAI Powered Data Analytics Job Simulation</h4>
+                        <p class="issuer">Tata (Forage)</p>
+                        <span class="cert-verify"><i class="fa-solid fa-circle-check"></i> Verified Certification</span>
+                    </div>
+                </div>
+
+                <div class="cert-item-card">
+                    <div class="cert-icon tcs-icon"><i class="fa-solid fa-brain"></i></div>
+                    <div class="cert-details">
+                        <h4>YUVA AI For All</h4>
+                        <p class="issuer">TCS iON</p>
+                        <span class="cert-verify"><i class="fa-solid fa-circle-check"></i> Verified Certification</span>
+                    </div>
+                </div>
+
+                <div class="cert-item-card">
+                    <div class="cert-icon infosys-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <div class="cert-details">
+                        <h4>Introduction to Artificial Intelligence</h4>
+                        <p class="issuer">Infosys Springboard</p>
+                        <span class="cert-verify"><i class="fa-solid fa-circle-check"></i> Verified Certification</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full-Stack Contact & Database Message Portal Section -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="section-tag-wrap">
+                <span class="section-tag">Direct Communication</span>
+                <h2 class="section-title">Connect With Somesha K</h2>
+                <p class="section-desc">Have a question or opportunity? Send a message directly to my inbox or reach out via email and LinkedIn.</p>
+            </div>
+
+            <div class="contact-card-box">
+                <!-- Left Details -->
+                <div class="contact-details-col">
+                    <h3>Direct Contact Details</h3>
+                    <p class="contact-intro">
+                        Available for Software Engineering roles, Full-Stack & AI/ML internships, and collaborative cybersecurity projects.
+                    </p>
+
+                    <div class="contact-links-list">
+                        <a href="mailto:ksomesha13@gmail.com" class="direct-contact-item">
+                            <div class="dci-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div>
+                                <span class="dci-label">Email Address</span>
+                                <span class="dci-val">ksomesha13@gmail.com</span>
+                            </div>
+                            <i class="fa-solid fa-arrow-right dci-arrow"></i>
+                        </a>
+
+                        <a href="tel:+916366328302" class="direct-contact-item">
+                            <div class="dci-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div>
+                                <span class="dci-label">Phone Number</span>
+                                <span class="dci-val">+91-6366328302</span>
+                            </div>
+                            <i class="fa-solid fa-arrow-right dci-arrow"></i>
+                        </a>
+
+                        <div class="direct-contact-item no-click">
+                            <div class="dci-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div>
+                                <span class="dci-label">Location & Languages</span>
+                                <span class="dci-val">Karnataka, India · English, Kannada (Native)</span>
+                            </div>
+                        </div>
+
+                        <div class="direct-contact-item no-click">
+                            <div class="dci-icon"><i class="fa-solid fa-briefcase"></i></div>
+                            <div>
+                                <span class="dci-label">Work Availability</span>
+                                <span class="dci-val">Full-Time Software Roles & Internships</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-channels-bar">
+                        <span class="socials-label">Professional Profiles:</span>
+                        <div class="social-btns-flex">
+                            <a href="https://github.com/ksomesha13-cpu" target="_blank" class="s-btn">
+                                <i class="fa-brands fa-github"></i> GitHub
+                            </a>
+                            <a href="https://www.linkedin.com/in/somesha-k-5946b8379/" target="_blank" class="s-btn">
+                                <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Form (Direct Cloud Delivery) -->
+                <div class="contact-form-col">
+                    <h3>Send a Direct Message</h3>
+                    <form id="contactForm" onsubmit="handleFormSubmission(event)">
+                        <div class="input-grid">
+                            <div class="input-group">
+                                <label for="senderName">Your Name *</label>
+                                <input type="text" id="senderName" required placeholder="Enter your full name">
+                            </div>
+                            <div class="input-group">
+                                <label for="senderEmail">Your Email *</label>
+                                <input type="email" id="senderEmail" required placeholder="you@company.com">
+                            </div>
+                        </div>
+
+                        <div class="input-grid">
+                            <div class="input-group">
+                                <label for="senderPhone">Phone / Organization</label>
+                                <input type="text" id="senderPhone" placeholder="+91 / Company Name">
+                            </div>
+                            <div class="input-group">
+                                <label for="msgSubject">Subject *</label>
+                                <input type="text" id="msgSubject" required placeholder="Hiring / Internship / Project Inquiry">
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="msgBody">Message *</label>
+                            <textarea id="msgBody" rows="4" required placeholder="Hi Somesha, we reviewed your portfolio on somesha.shop and would like to connect..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn" id="submitMsgBtn">
+                            <span id="submitBtnText">Send Message Directly</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Clean · Zero IP / Raw Server Leakage) -->
+    <footer class="cyber-footer">
+        <div class="container footer-content">
+            <div class="footer-left-info">
+                <a href="#hero" class="brand">
+                    <span class="brand-avatar">SK</span>
+                    <span class="brand-text">Somesha<span class="brand-dot">.shop</span></span>
+                </a>
+                <p>Official Full-Stack Engineering & AI Portfolio of Somesha K. Built with Python, modern web technologies, and clean responsive architecture.</p>
+            </div>
+
+            <div class="footer-center-links">
+                <p>© 2026 Somesha K. All rights reserved.</p>
+            </div>
+
+            <div class="footer-social-icons">
+                <a href="https://github.com/ksomesha13-cpu" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/somesha-k-5946b8379/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="mailto:ksomesha13@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                <a href="tel:+916366328302" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Back to Top Button -->
+    <button class="back-to-top-btn" id="toTopBtn" aria-label="Scroll to top">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <!-- Toast Notification -->
+    <div class="toast-bubble" id="toastBubble">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toastMsg">Notification</span>
+    </div>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>
